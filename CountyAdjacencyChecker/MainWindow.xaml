@@ -1,0 +1,41 @@
+﻿<Window x:Class="CountyAdjacencyChecker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="County Adjacency Checker" Height="300" Width="400">
+    <Grid>
+        <StackPanel>
+            <Grid Margin="10">
+                <TextBox Name="County1TextBox" VerticalAlignment="Center" Width="350" />
+                <TextBlock IsHitTestVisible="False" Text="Enter first county name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,2,0,0" Foreground="DarkGray" Width="350">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=County1TextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Grid Margin="10">
+                <TextBox Name="County2TextBox" VerticalAlignment="Center" Width="350" />
+                <TextBlock IsHitTestVisible="False" Text="Enter second county name" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0" Foreground="DarkGray" Width="350">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=County2TextBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Button Name="CheckAdjacencyButton" Content="Check Adjacency" Margin="10" Width="100" HorizontalAlignment="Center" Click="CheckAdjacencyButton_Click"/>
+            <TextBlock Name="ResultTextBlock" Margin="10" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</Window>
